@@ -5,3 +5,6 @@
 /kj
 /.vs/chat/FileContentIndex
 /.vs
+/Project/.vs/Chat-project/v17
+/Project/x64/Debug
+*.user
