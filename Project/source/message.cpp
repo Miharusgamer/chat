@@ -6,7 +6,26 @@ Message::Message(std::string& message_content, User& sender)
 {
 }
 
-PublicMessage::PublicMessage(std::string& message, User& sender)
-	:Message(message,sender)
+std::string_view Message::getMessage() const
 {
+	return m_content;
+}
+
+User& Message::getSender() const
+{
+	return m_sender;
+}
+
+PrivateMessage::PrivateMessage(std::string& messageContent, User& sender, User& reciever)
+	:Message(messageContent,sender),m_reciever(reciever)
+{
+
+}
+
+std::string_view PrivateMessage::getMessage(User& reciepient)
+{
+	if (reciepient == m_reciever || reciepient == this->getSender())
+		return Message::getMessage();
+
+	return "Access denied";
 }

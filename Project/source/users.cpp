@@ -34,11 +34,20 @@ std::string User::getLogin() const
 	return m_password;
 }
 
+bool User::operator==(User& other) const
+{
+	if (this->m_password == other.m_password && this->m_login == other.m_login && this->m_username == other.m_username)
+		return true;
+
+	return false;
+}
+
 User::User(std::string& login, std::string& password, std::string& username)
 	:m_login(login),m_password(password),m_username(username)
 {
-	std::string isEmpty = std::string(); //ugly for memory allocation, but more readable than using c_str \0 check
 	/*
+	std::string isEmpty = std::string(); //ugly for memory allocation, but more readable than using c_str \0 check
+
 	if (login == isEmpty)
 		throw 1;
 	if (username == isEmpty)
