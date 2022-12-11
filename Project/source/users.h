@@ -13,9 +13,4 @@ public:
 	User() = delete;
 	User(std::string& login, std::string& username, std::string& password);
 	~User() = default;
-
-private:
-	const std::string& m_login;
-	std::string& m_password;
-	std::string& m_username;
 };
